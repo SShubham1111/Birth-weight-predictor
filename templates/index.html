@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birth Weight Prediction</title>
+
+    <style>
+        /* Reset & base styling */
+        * {
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+        }
+
+        /* Container card */
+        .form-container {
+            background: #ffffff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #2c3e50;
+        }
+
+        /* Form layout */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #34495e;
+        }
+
+        input {
+            padding: 10px 12px;
+            margin-bottom: 18px;
+            border-radius: 6px;
+            border: 1px solid #ccd1d9;
+            font-size: 14px;
+            transition: border 0.3s, box-shadow 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #4facfe;
+            box-shadow: 0 0 0 2px rgba(79, 172, 254, 0.2);
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 12px;
+            background: linear-gradient(135deg, #4facfe, #00c6ff);
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+            box-shadow: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h1>Predict Birth Weight</h1>
+
+        <form action="/predict" method="POST">
+            <label>Gestation</label>
+            <input name="gestation" type="number" required>
+
+            <label>Parity</label>
+            <input name="parity" type="number" required>
+
+            <label>Age</label>
+            <input name="age" type="number" required>
+
+            <label>Height</label>
+            <input name="height" type="number" required>
+
+            <label>Weight</label>
+            <input name="weight" type="number" required>
+
+            <label>Smoke</label>
+            <input name="smoke" type="number" required>
+
+            <button type="submit">Predict Birth Weight</button>
+        </form>
+        <h3>
+            The Predicted Birth Weight is : {{prediction}}
+        </h3>
+    </div>
+</body>
+</html>
